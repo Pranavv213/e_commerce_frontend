@@ -3,8 +3,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
 import boy from './assets/boy.png';
 
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyBt3AWx7yhG1-EukcuLbmilwTBaXoknutQ",
   authDomain: "ecommerceagent-af9b7.firebaseapp.com",
@@ -15,9 +13,6 @@ const firebaseConfig = {
   measurementId: "G-0Y77D8QDV6"
 };
 
-
-
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -27,129 +22,162 @@ const AGENT_GATEWAY_URL = "http://localhost:8001";
 
 const styles = {
   body: { 
-    backgroundColor: '#070a13', 
-    color: '#e2e8f0', 
-    fontFamily: 'system-ui, -apple-system, sans-serif', 
+    backgroundColor: '#0e1117', 
+    color: '#e3e3e3', 
+    fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', 
     minHeight: '100vh', 
     margin: 0, 
-    paddingBottom: '40px',
-    backgroundImage: 'radial-gradient(circle at 50% 0%, #1e1b4b 0%, #070a13 70%)'
+    paddingBottom: '40px'
   },
   nav: { 
-    backgroundColor: 'rgba(11, 15, 27, 0.8)', 
-    backdropFilter: 'blur(16px)', 
-    borderBottom: '1px solid rgba(255, 255, 255, 0.08)', 
+    backgroundColor: '#13161c', 
+    borderBottom: '1px solid #21262d', 
     position: 'sticky', 
     top: 0, 
     zIndex: 50 
   },
-  navContainer: { maxWidth: '1200px', margin: '0 auto', padding: '0 24px', height: '76px', display: 'flex', justifycontent: 'space-between', alignItems: 'center' },
+  navContainer: { maxWidth: '1200px', margin: '0 auto', padding: '0 24px', height: '70px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
   logoArea: { display: 'flex', alignItems: 'center', gap: '12px' },
   logoIcon: { 
-    width: '38px', 
-    height: '38px', 
-    background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)', 
-    borderRadius: '10px', 
+    width: '32px', 
+    height: '32px', 
+    background: 'linear-gradient(135deg, #7a22ff 0%, #00d2ff 100%)', 
+    borderRadius: '50%', 
     display: 'flex', 
     alignItems: 'center', 
     justifyContent: 'center', 
     color: '#fff', 
     fontWeight: '900', 
-    fontSize: '18px',
-    boxShadow: '0 0 15px rgba(168, 85, 247, 0.4)'
+    fontSize: '16px',
+    boxShadow: '0 0 20px rgba(0, 210, 255, 0.3)'
   },
-  logoText: { fontWeight: '800', fontSize: '18px', margin: 0, letterSpacing: '-0.025em', color: '#fff' },
-  logoSubtext: { margin: 0, fontSize: '11px', color: '#94a3b8', fontWeight: '500' },
+  logoText: { fontWeight: '700', fontSize: '20px', margin: 0, color: '#fff', letterSpacing: '-0.02em' },
+  logoSubtext: { margin: 0, fontSize: '11px', color: '#8b949e', fontWeight: '400' },
   grid: { maxWidth: '1200px', margin: '32px auto 0 auto', padding: '0 16px', display: 'flex', flexDirection: 'column', gap: '24px' },
   card: { 
-    backgroundColor: 'rgba(17, 24, 39, 0.7)', 
-    borderRadius: '24px', 
-    border: '1px solid rgba(255, 255, 255, 0.08)', 
-    backdropFilter: 'blur(20px)',
+    backgroundColor: '#171b22', 
+    borderRadius: '16px', 
+    border: '1px solid #21262d', 
     overflow: 'hidden', 
     display: 'flex', 
     flexDirection: 'column', 
     height: 'fit-content' 
   },
-  cardHeader: { padding: '22px 24px', borderBottom: '1px solid rgba(255, 255, 255, 0.06)', display: 'flex', justifycontent: 'space-between', alignItems: 'center' },
-  cardTitle: { margin: 0, fontSize: '16px', fontWeight: '700', color: '#fff', letterSpacing: '-0.01em' },
-  cardSubtitle: { margin: '4px 0 0 0', fontSize: '11px', color: '#64748b' },
+  cardHeader: { padding: '20px 24px', borderBottom: '1px solid #21262d', display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
+  cardTitle: { margin: 0, fontSize: '16px', fontWeight: '600', color: '#f0f6fc' },
+  cardSubtitle: { margin: '4px 0 0 0', fontSize: '12px', color: '#8b949e' },
   cardBody: { padding: '24px' },
-  profileBadge: { display: 'flex', alignItems: 'center', gap: '12px', padding: '14px', backgroundColor: 'rgba(255, 255, 255, 0.03)', borderRadius: '16px', border: '1px solid rgba(255, 255, 255, 0.06)' },
-  avatar: { width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)', color: '#fff', display: 'flex', alignItems: 'center', justifycontent: 'center', fontWeight: '700' },
+  profileBadge: { display: 'flex', alignItems: 'center', gap: '12px', padding: '14px', backgroundColor: '#0e1117', borderRadius: '12px', border: '1px solid #21262d' },
+  avatar: { width: '36px', height: '36px', borderRadius: '50%', background: 'linear-gradient(135deg, #1d4ed8 0%, #7e22ce 100%)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700' },
   balanceBanner: { 
-    background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.02) 100%)', 
-    border: '1px solid rgba(16, 185, 129, 0.2)', 
-    borderRadius: '18px', 
-    padding: '24px', 
+    background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.05) 0%, rgba(56, 189, 248, 0.01) 100%)', 
+    border: '1px solid rgba(56, 189, 248, 0.2)', 
+    borderRadius: '14px', 
+    padding: '20px', 
     textAlign: 'center', 
-    marginBottom: '20px',
-    boxShadow: 'inset 0 0 20px rgba(16, 185, 129, 0.05)'
+    marginBottom: '20px'
   },
-  balanceLabel: { fontSize: '11px', fontWeight: '700', color: '#10b981', letterSpacing: '0.05em', textTransform: 'uppercase' },
-  balanceValue: { fontSize: '34px', fontWeight: '900', color: '#10b981', margin: '6px 0 0 0', letterSpacing: '-0.02em' },
-  btnPrimary: { backgroundColor: '#10b981', color: '#fff', border: 'none', padding: '12px', borderRadius: '12px', fontWeight: '700', cursor: 'pointer', flex: 1 },
-  btnSecondary: { backgroundColor: 'rgba(239, 68, 68, 0.1)', color: '#f87171', border: '1px solid rgba(239, 68, 68, 0.2)', padding: '12px', borderRadius: '12px', fontWeight: '700', cursor: 'pointer', flex: 1 },
+  balanceLabel: { fontSize: '11px', fontWeight: '600', color: '#38bdf8', letterSpacing: '0.05em', textTransform: 'uppercase' },
+  balanceValue: { fontSize: '30px', fontWeight: '700', color: '#fff', margin: '6px 0 0 0' },
+  btnPrimary: { backgroundColor: '#1f6feb', color: '#fff', border: 'none', padding: '12px', borderRadius: '8px', fontWeight: '600', cursor: 'pointer', flex: 1 },
+  btnSecondary: { backgroundColor: 'transparent', color: '#f85149', border: '1px solid #f85149', padding: '12px', borderRadius: '8px', fontWeight: '600', cursor: 'pointer', flex: 1 },
   catalogList: { padding: '0 24px', maxHeight: '580px', overflowY: 'auto' },
-  catalogRow: { display: 'flex', alignItems: 'center', justifycontent: 'space-between', gap: '16px', padding: '20px 0', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', flexWrap: 'wrap' },
-  imgContainer: { width: '64px', height: '64px', backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '14px', display: 'flex', alignItems: 'center', justifycontent: 'center', flexShrink: 0 },
-  tag: { fontSize: '9px', fontWeight: '700', color: '#c084fc', backgroundColor: 'rgba(168, 85, 247, 0.1)', padding: '3px 8px', borderRadius: '6px', border: '1px solid rgba(168, 85, 247, 0.15)' },
-  itemName: { margin: '6px 0 2px 0', fontSize: '15px', fontWeight: '600', color: '#fff' },
-  itemPrice: { fontSize: '15px', fontWeight: '700', color: '#a855f7' },
+  catalogRow: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px', padding: '20px 0', borderBottom: '1px solid #21262d', flexWrap: 'wrap' },
+  imgContainer: { width: '80px', height: '80px', backgroundColor: '#0e1117', border: '1px solid #21262d', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, padding: '8px', boxSizing: 'border-box' },
+  tag: { fontSize: '10px', fontWeight: '600', color: '#58a6ff', backgroundColor: 'rgba(88, 166, 255, 0.1)', padding: '2px 8px', borderRadius: '20px', border: '1px solid rgba(88, 166, 255, 0.15)' },
+  itemName: { margin: '6px 0 2px 0', fontSize: '15px', fontWeight: '600', color: '#f0f6fc' },
+  itemPrice: { fontSize: '15px', fontWeight: '600', color: '#58a6ff' },
   selectQuantity: { padding: '8px 10px', borderRadius: '10px', backgroundColor: '#0f172a', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#fff', cursor: 'pointer' },
-  btnAdd: { background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)', color: '#fff', border: 'none', padding: '9px 18px', borderRadius: '10px', fontWeight: '700', cursor: 'pointer' },
-  orderBox: { padding: '14px', backgroundColor: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.06)', borderRadius: '14px', marginBottom: '12px' },
-  btnCancel: { width: '100%', padding: '8px', backgroundColor: 'transparent', color: '#f87171', border: '1px solid rgba(239, 68, 68, 0.2)', borderRadius: '8px', fontSize: '11px', fontWeight: '700', cursor: 'pointer', marginTop: '8px' },
-  modalOverlay: { position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(3, 7, 18, 0.85)', backdropFilter: 'blur(12px)', display: 'flex', justifycontent: 'center', alignItems: 'center', zIndex: 1000 },
-  modalContent: { backgroundColor: '#0d111d', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '24px', borderRadius: '24px', width: '92%', maxWidth: '480px', height: '85vh', maxHeight: '650px', display: 'flex', flexDirection: 'column', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' },
-  chatLogsArea: { flex: 1, overflowY: 'auto', margin: '16px 0', display: 'flex', flexDirection: 'column', gap: '12px' },
-  bubbleUser: { alignSelf: 'flex-end', backgroundColor: '#6366f1', color: '#fff', padding: '12px 16px', borderRadius: '18px 18px 0 18px', fontSize: '13.5px', maxWidth: '85%' },
-  bubbleAgent: { alignSelf: 'flex-start', backgroundColor: '#1e293b', color: '#e2e8f0', padding: '12px 16px', borderRadius: '18px 18px 18px 0', fontSize: '13.5px', maxWidth: '85%', border: '1px solid rgba(255, 255, 255, 0.06)' },
-  chatForm: { display: 'flex', gap: '8px' },
-  modalInput: { flex: 1, padding: '14px 16px', backgroundColor: '#111827', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '14px', color: '#fff', outline: 'none', minWidth: 0 },
-  btnSend: { background: 'linear-gradient(135deg, #a855f7 0%, #6366f1 100%)', color: '#fff', border: 'none', padding: '14px 20px', borderRadius: '14px', fontWeight: '700', cursor: 'pointer' },
-  hitlContainer: { backgroundColor: '#111827', border: '1px solid #ef4444', padding: '14px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '4px' },
-  // New styles for agent guide
-  guideContainer: { 
-    padding: '16px 20px',
-    backgroundColor: 'rgba(168, 85, 247, 0.05)',
-    border: '1px solid rgba(168, 85, 247, 0.15)',
-    borderRadius: '16px',
-    marginBottom: '16px',
-    maxHeight: '200px',
-    overflowY: 'auto'
+  btnAdd: { background: '#1f6feb', color: '#fff', border: 'none', padding: '9px 18px', borderRadius: '10px', fontWeight: '700', cursor: 'pointer' },
+  orderBox: { padding: '14px', backgroundColor: '#0e1117', border: '1px solid #21262d', borderRadius: '12px', marginBottom: '12px' },
+  btnCancel: { width: '100%', padding: '8px', backgroundColor: 'transparent', color: '#f85149', border: '1px solid rgba(248, 81, 73, 0.3)', borderRadius: '8px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', marginTop: '8px', transition: 'all 0.2s' },
+  
+  modalOverlay: { position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', backgroundColor: 'rgba(9, 11, 15, 0.8)', backdropFilter: 'blur(8px)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 1000 },
+  modalContent: { backgroundColor: '#13161c', border: '1px solid #21262d', padding: '24px', borderRadius: '24px', width: '92%', maxWidth: '680px', height: '85vh', maxHeight: '750px', display: 'flex', flexDirection: 'column' },
+  chatLogsArea: { flex: 1, overflowY: 'auto', margin: '16px 0', display: 'flex', flexDirection: 'column', gap: '24px', paddingRight: '8px' },
+  
+  bubbleUser: { 
+    alignSelf: 'flex-end', 
+    backgroundColor: '#282a36', 
+    color: '#e3e3e3', 
+    padding: '12px 18px', 
+    borderRadius: '18px', 
+    fontSize: '14px', 
+    maxWidth: '75%',
+    lineHeight: '1.5'
   },
-  guideTitle: { 
-    fontSize: '12px', 
+  bubbleAgent: { 
+    alignSelf: 'flex-start', 
+    backgroundColor: 'transparent', 
+    color: '#e3e3e3', 
+    padding: '4px 0px 4px 40px', 
+    fontSize: '14px', 
+    maxWidth: '100%',
+    lineHeight: '1.6',
+    position: 'relative'
+  },
+  chatForm: { 
+    display: 'flex', 
+    gap: '8px', 
+    backgroundColor: '#1e232b', 
+    borderRadius: '32px', 
+    padding: '6px 6px 6px 18px',
+    alignItems: 'center',
+    border: '1px solid transparent',
+    transition: 'border-color 0.2s'
+  },
+  modalInput: { 
+    flex: 1, 
+    padding: '10px 0', 
+    backgroundColor: 'transparent', 
+    border: 'none', 
+    color: '#fff', 
+    outline: 'none', 
+    fontSize: '14px' 
+  },
+  btnSend: { 
+    background: 'linear-gradient(135deg, #7a22ff 0%, #00d2ff 100%)', 
+    color: '#fff', 
+    border: 'none', 
+    width: '40px',
+    height: '40px',
+    borderRadius: '50%', 
     fontWeight: '700', 
-    color: '#a855f7', 
-    margin: '0 0 10px 0',
-    letterSpacing: '0.05em',
-    textTransform: 'uppercase',
+    cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
-    gap: '8px'
+    justifyContent: 'center'
+  },
+  hitlContainer: { backgroundColor: '#1c1212', border: '1px solid #f85149', padding: '16px', borderRadius: '16px', display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '12px' },
+  
+  guideContainer: { 
+    padding: '12px 0',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '10px',
+    marginBottom: '16px',
+    maxHeight: '180px',
+    overflowY: 'auto'
   },
   guideItem: { 
     display: 'flex', 
-    gap: '8px', 
-    marginBottom: '6px',
-    padding: '4px 0',
-    borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
-  },
-  guideIcon: { 
-    fontSize: '14px',
-    minWidth: '20px',
-    color: '#a855f7'
+    flexDirection: 'column',
+    padding: '12px',
+    backgroundColor: '#1e232b',
+    borderRadius: '12px',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s, transform 0.2s',
+    border: '1px solid #21262d'
   },
   guideExample: { 
-    fontSize: '12px', 
-    color: '#e2e8f0',
-    fontWeight: '500'
+    fontSize: '13px', 
+    color: '#58a6ff',
+    fontWeight: '500',
+    marginBottom: '4px'
   },
   guideDescription: { 
     fontSize: '11px', 
-    color: '#94a3b8'
+    color: '#8b949e'
   }
 };
 
@@ -164,8 +192,9 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalInputValue, setModalInputValue] = useState("");
   const [chatHistory, setChatHistory] = useState([
-    { sender: 'agent', text: 'Hello! I am your AI Copilot. Simply type what you want to buy, cancel, or search, and I will handle the operations autonomously.' }
+    { sender: 'agent', text: 'Hello! I am your AI Store Assistant. Tell me what you are looking for, ask to buy items, or manage your active orders seamlessly.' }
   ]);
+  const [isAgentTyping, setIsAgentTyping] = useState(false);
   const [pendingApproval, setPendingApproval] = useState(null);
 
   const [showGiftModal, setShowGiftModal] = useState(false);
@@ -174,14 +203,11 @@ function App() {
 
   const messagesEndRef = useRef(null);
 
-  // Agent guide examples
   const agentGuideExamples = [
-    { icon: '💰', example: '"What is my balance?"', description: 'Check your wallet balance' },
-    { icon: '📦', example: '"Show me all items"', description: 'List all available products' },
-    { icon: '🛒', example: '"Buy me 2 Coca Cola cans"', description: 'Purchase items with quantity' },
-    { icon: '❄️', example: '"I want something cold"', description: 'Browse items by category' },
-    { icon: '↩️', example: '"Cancel my last order"', description: 'Cancel recent order for refund' },
-    { icon: '💳', example: '"Add Rs 200 to my wallet"', description: 'Top up your balance' },
+    { icon: '💰', example: 'What is my balance?', description: 'Check your current wallet standing' },
+    { icon: '📦', example: 'Show me all items', description: 'Display available catalog products' },
+    { icon: '🛒', example: 'Buy me 2 Coca Cola cans', description: 'Initiate a quick purchase pipeline' },
+    { icon: '↩️', example: 'Cancel my last order', description: 'Reverse recent delivery queue dispatch' }
   ];
 
   useEffect(() => {
@@ -195,26 +221,57 @@ function App() {
       @media (max-width: 480px) {
         .catalog-row-item { justify-content: center !important; text-align: center; }
         .catalog-row-controls { width: 100%; justify-content: center; margin-top: 8px; }
+        .gemini-guide-grid { grid-template-columns: 1fr !important; }
       }
-      .glow-btn-hover:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(168, 85, 247, 0.6) !important; }
-      .glow-btn-hover:active { transform: translateY(1px); }
-      
-      .google-btn-glow:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
-        background: rgba(255, 255, 255, 0.07) !important;
-        border-color: rgba(99, 102, 241, 0.6) !important;
+      .gemini-input-wrapper:focus-within {
+        border-color: #58a6ff !important;
       }
-      .google-btn-glow:active { transform: translateY(1px); }
-
+      .agent-avatar-decor::before {
+        content: '✨';
+        position: absolute;
+        left: 8px;
+        top: 6px;
+        font-size: 16px;
+        background: linear-gradient(135deg, #7a22ff 0%, #00d2ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .btn-gemini-glow:hover {
+        opacity: 0.9;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+      }
+      .card-btn-action:hover {
+        background-color: #21262d !important;
+        transform: translateY(-1px);
+      }
+      .guide-card-hover:hover {
+        background-color: #282a36 !important;
+        transform: translateY(-1px);
+      }
       @keyframes fallAnimation {
         0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
         100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
       }
-      @keyframes borderGlowLoop {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+      
+      /* Gemini Style Custom Loader */
+      .gemini-loader {
+        display: flex;
+        gap: 6px;
+        padding: 12px 0;
+        align-items: center;
+      }
+      .gemini-loader-dot {
+        width: 8px;
+        height: 8px;
+        background: linear-gradient(135deg, #7a22ff 0%, #00d2ff 100%);
+        border-radius: 50%;
+        animation: geminiBounce 1.4s infinite ease-in-out both;
+      }
+      .gemini-loader-dot:nth-child(1) { animation-delay: -0.32s; }
+      .gemini-loader-dot:nth-child(2) { animation-delay: -0.16s; }
+      @keyframes geminiBounce {
+        0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+        40% { transform: scale(1.2); opacity: 1; }
       }
     `;
     const styleHead = document.createElement('style');
@@ -225,7 +282,7 @@ function App() {
 
   useEffect(() => {
     if (isModalOpen) messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [chatHistory, isModalOpen, pendingApproval]);
+  }, [chatHistory, isModalOpen, pendingApproval, isAgentTyping]);
 
   useEffect(() => {
     loadMarketplace();
@@ -240,7 +297,7 @@ function App() {
 
   const triggerNativeConfettiBurst = () => {
     const particles = [];
-    const colors = ['#a855f7', '#6366f1', '#10b981', '#f59e0b', '#ec4899', '#3b82f6'];
+    const colors = ['#7a22ff', '#00d2ff', '#1f6feb', '#f59e0b', '#ec4899'];
     for (let i = 0; i < 120; i++) {
       particles.push({
         id: i,
@@ -267,7 +324,6 @@ function App() {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      
       const savedUserId = localStorage.getItem("app_user_id");
       
       if (!savedUserId) {
@@ -328,7 +384,7 @@ function App() {
     if (!activeUserId) return alert("Please authenticate via Google before processing orders.");
     const qty = selectedQuantities[name] || 1;
     const totalPrice = parseFloat(price) * qty;
-    if (userProfile && userProfile.user_balance < totalPrice) return alert("Insufficient balance to fulfill transaction matrix.");
+    if (userProfile && userProfile.user_balance < totalPrice) return alert("Insufficient balance.");
 
     const payload = { name, price: parseFloat(price), quantity: qty, timestamp: new Date().toISOString() };
     try {
@@ -354,13 +410,14 @@ function App() {
 
   const handleSendMessage = async (e) => {
     e.preventDefault();
-    if (!modalInputValue.trim() || pendingApproval) return;
+    if (!modalInputValue.trim() || pendingApproval || isAgentTyping) return;
 
     const currentUid = localStorage.getItem("app_user_id") || "guest_user_session";
     const userMessage = modalInputValue;
 
     setChatHistory(prev => [...prev, { sender: 'user', text: userMessage }]);
     setModalInputValue("");
+    setIsAgentTyping(true);
 
     try {
       const response = await fetch(`${AGENT_GATEWAY_URL}/api/agent/chat`, {
@@ -384,6 +441,8 @@ function App() {
     } catch (error) {
       console.error(error);
       setChatHistory(prev => [...prev, { sender: 'agent', text: "Error connecting to AI execution engine." }]);
+    } finally {
+      setIsAgentTyping(false);
     }
   };
 
@@ -403,7 +462,6 @@ function App() {
     } catch (err) { console.error(err); }
   };
 
-  // Quick action handler for example clicks
   const handleExampleClick = (example) => {
     setModalInputValue(example);
   };
@@ -432,16 +490,15 @@ function App() {
       <nav style={styles.nav}>
         <div style={styles.navContainer}>
           <div style={styles.logoArea}>
-            <div style={styles.logoIcon}>⚡</div>
+            <div style={styles.logoIcon}>✨</div>
             <div>
-              <h1 style={styles.logoText}>FlashCart AI</h1>
-              <p style={styles.logoSubtext}>Shop with AI</p>
+              <h1 style={styles.logoText}>OmniMind Shop</h1>
+              <p style={styles.logoSubtext}>AI-Driven Neural E-Commerce Platform</p>
             </div>
           </div>
           <div>
-            &nbsp; &nbsp; &nbsp; &nbsp;
             {activeUserId && (
-              <button onClick={logoutFromFirebase} style={{...styles.btnSecondary, padding: '12px 16px', fontSize: '12px'}}>
+              <button onClick={logoutFromFirebase} style={{...styles.btnSecondary, padding: '8px 16px', fontSize: '12px'}}>
                 Sign Out
               </button>
             )}
@@ -456,45 +513,43 @@ function App() {
             <div style={styles.cardBody}>
               {!activeUserId ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', width: '100%' }}>
-                  <p style={{ margin: '0 0 4px 0', fontSize: '13px', fontWeight: '600', color: '#94a3b8', textAlign: 'center' }}>
-                    Access restricted. Please log in first:
+                  <p style={{ margin: '0 0 4px 0', fontSize: '13px', fontWeight: '500', color: '#8b949e', textAlign: 'center' }}>
+                    Access Secure Marketplace Infrastructure
                   </p>
                   <button 
                     onClick={loginWithFirebaseGoogle} 
-                    className="google-btn-glow"
                     style={{
                       width: '100%',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '12px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                      backgroundColor: '#1f6feb',
                       color: '#fff',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      padding: '14px 16px',
-                      borderRadius: '14px',
-                      fontWeight: '700',
+                      border: 'none',
+                      padding: '12px 16px',
+                      borderRadius: '8px',
+                      fontWeight: '600',
                       fontSize: '14px',
                       cursor: 'pointer',
-                      transition: 'all 0.25s ease',
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)'
+                      transition: 'background-color 0.2s'
                     }}
                   >
                     <svg width="18" height="18" viewBox="0 0 18 18" style={{ display: 'block' }}>
-                      <path d="M17.64 9.2c0-.63-.06-1.25-.16-1.84H9v3.47h4.84c-.21 1.12-.84 2.07-1.79 2.7v2.24h2.9c1.69-1.55 2.69-3.85 2.69-6.57z" fill="#4285F4"/>
-                      <path d="M9 18c2.43 0 4.47-.8 5.96-2.23l-2.9-2.24c-.8.54-1.84.87-3.06.87-2.35 0-4.34-1.58-5.05-3.71H.92v2.32C2.4 15.97 5.46 18 9 18z" fill="#34A853"/>
-                      <path d="M3.95 10.69c-.18-.54-.28-1.12-.28-1.69s.1-1.15.28-1.69V4.99H.92c-.6 1.2-0.95 2.57-0.95 4.01s.35 2.81.95 4.01l3.03-2.32z" fill="#FBBC05"/>
-                      <path d="M9 3.58c1.32 0 2.5.45 3.44 1.35L15 2.3C13.46.87 11.43 0 9 0 5.46 0 2.4 2.03.92 4.99l3.03 2.32c.71-2.13 2.7-3.71 5.05-3.71z" fill="#EA4335"/>
+                      <path d="M17.64 9.2c0-.63-.06-1.25-.16-1.84H9v3.47h4.84c-.21 1.12-.84 2.07-1.79 2.7v2.24h2.9c1.69-1.55 2.69-3.85 2.69-6.57z" fill="#fff"/>
+                      <path d="M9 18c2.43 0 4.47-.8 5.96-2.23l-2.9-2.24c-.8.54-1.84.87-3.06.87-2.35 0-4.34-1.58-5.05-3.71H.92v2.32C2.4 15.97 5.46 18 9 18z" fill="#fff" opacity="0.8"/>
+                      <path d="M3.95 10.69c-.18-.54-.28-1.12-.28-1.69s.1-1.15.28-1.69V4.99H.92c-.6 1.2-0.95 2.57-0.95 4.01s.35 2.81.95 4.01l3.03-2.32z" fill="#fff" opacity="0.7"/>
+                      <path d="M9 3.58c1.32 0 2.5.45 3.44 1.35L15 2.3C13.46.87 11.43 0 9 0 5.46 0 2.4 2.03.92 4.99l3.03 2.32c.71-2.13 2.7-3.71 5.05-3.71z" fill="#fff" opacity="0.9"/>
                     </svg>
-                    Continue with Google
+                    Authenticate with Google
                   </button>
                 </div>
               ) : (
                 <div style={styles.profileBadge}>
                   <div style={styles.avatar}>{userProfile?.user_name?.charAt(0) || 'U'}</div>
                   <div style={{ minWidth: 0, flex: 1 }}>
-                    <p style={{ margin: 0, fontSize: '13px', fontWeight: '700', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: '#fff' }}>{userProfile?.user_name || "Syncing..."}</p>
-                    <p style={{ margin: 0, fontSize: '11px', color: '#64748b', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{activeUserId}</p>
+                    <p style={{ margin: 0, fontSize: '14px', fontWeight: '600', color: '#fff' }}>{userProfile?.user_name || "Syncing..."}</p>
+                    <p style={{ margin: 0, fontSize: '11px', color: '#8b949e', fontFamily: 'monospace' }}>{activeUserId}</p>
                   </div>
                 </div>
               )}
@@ -504,8 +559,8 @@ function App() {
           <div style={styles.card}>
             <div style={styles.cardHeader}>
               <div>
-                <h2 style={styles.cardTitle}>Smart Ledger</h2>
-                <p style={styles.cardSubtitle}>Credit status & Autonomous triggers</p>
+                <h2 style={styles.cardTitle}>Neural Balance Ledger</h2>
+                <p style={styles.cardSubtitle}>Autonomous credit allocation</p>
               </div>
             </div>
             <div style={styles.cardBody}>
@@ -514,56 +569,28 @@ function App() {
                 <h3 style={styles.balanceValue}>₹{userProfile ? userProfile.user_balance.toFixed(2) : "0.00"}</h3>
               </div>
               
-              <style>{`
-                @keyframes glowAnimation {
-                  0% { background-position: 0% 50%; }
-                  50% { background-position: 100% 50%; }
-                  100% { background-position: 0% 50%; }
-                }
-              `}</style>
-
               <button 
-                className="glow-btn-hover"
-                role="button"
+                className="btn-gemini-glow"
                 onClick={handleLaunchCopilot}
                 style={{
                   width: '100%',
-                  padding: '16px 24px',
+                  padding: '14px 24px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '10px',
                   border: 'none',
-                  outline: 'none',
                   color: '#fff',
-                  background: '#090d16',
+                  background: 'linear-gradient(135deg, #7a22ff 0%, #00d2ff 100%)',
                   cursor: 'pointer',
-                  position: 'relative',
-                  zIndex: 0,
-                  borderRadius: '16px',
-                  userSelect: 'none',
-                  WebkitUserSelect: 'none',
-                  touchAction: 'manipulation',
-                  boxShadow: '0 0 15px rgba(168, 85, 247, 0.2)',
-                  transition: 'transform 0.2s, box-shadow 0.2s'
+                  borderRadius: '30px',
+                  fontWeight: '600',
+                  fontSize: '14px',
+                  transition: 'all 0.3s'
                 }}
               >
-                <span style={{
-                  position: 'absolute',
-                  top: '-2px',
-                  left: '-2px',
-                  width: 'calc(100% + 4px)',
-                  height: 'calc(100% + 4px)',
-                  background: 'linear-gradient(45deg, #a855f7, #6366f1, #3b82f6, #10b981, #a855f7)',
-                  backgroundSize: '400%',
-                  zIndex: -1,
-                  filter: 'blur(8px)',
-                  borderRadius: '18px',
-                  animation: 'glowAnimation 12s linear infinite',
-                }} />
-
-                <span style={{ fontSize: '18px' }}>🤖</span>
-                <span style={{ fontWeight: '800', letterSpacing: '0.02em', fontSize: '14px' }}>LAUNCH AI COPILOT</span>
+                <span>✨</span>
+                <span>ASK COGNITIVE ASSISTANT</span>
               </button>
             </div>
           </div>
@@ -572,14 +599,14 @@ function App() {
         <div className="col-mid" style={styles.card}>
           <div style={styles.cardHeader}>
             <div>
-              <h2 style={styles.cardTitle}>Smart Marketplace</h2>
-              <p style={styles.cardSubtitle}>Organic snacks & grocery pipeline</p>
+              <h2 style={styles.cardTitle}>AI Optimized Marketplace Inventory</h2>
+              <p style={styles.cardSubtitle}>Real-time stock pipelines</p>
             </div>
           </div>
           <div style={styles.catalogList}>
             {!loadingItems && marketplaceItems.map((item, idx) => (
               <div key={idx} className="catalog-row-item" style={styles.catalogRow}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', justifycontent: 'inherit' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', justifyContent: 'inherit' }}>
                   <div style={styles.imgContainer}>
                     <img src={item.image_url} alt={item.item_name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                   </div>
@@ -589,7 +616,6 @@ function App() {
                     <div style={styles.itemPrice}>₹{item.price.toFixed(2)}</div>
                   </div>
                 </div>
-                
               </div>
             ))}
           </div>
@@ -597,18 +623,18 @@ function App() {
 
         <div className="col-right" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div style={styles.card}>
-            <div style={{...styles.cardHeader, borderLeft: '4px solid #a855f7'}}>
-              <h2 style={styles.cardTitle}>Autonomous Queue</h2>
+            <div style={{...styles.cardHeader, borderLeft: '4px solid #00d2ff'}}>
+              <h2 style={styles.cardTitle}>Autonomous Delivery Queue</h2>
             </div>
             <div style={{ padding: '16px', maxHeight: '350px', overflowY: 'auto' }}>
               {userProfile?.orders?.map((order, idx) => (
                 <div key={idx} style={styles.orderBox}>
-                  <h5 style={{ margin: 0, fontSize: '13px', color: '#fff', fontWeight: '600' }}>{order.name} (x{order.quantity})</h5>
+                  <h5 style={{ margin: 0, fontSize: '13px', color: '#fff', fontWeight: '500' }}>{order.name} (x{order.quantity})</h5>
                   <button onClick={() => triggerCancellation(order)} style={styles.btnCancel}>Cancel Dispatch</button>
                 </div>
               ))}
               {(!userProfile?.orders || userProfile.orders.length === 0) && (
-                <p style={{ margin: 0, padding: '12px 0', fontSize: '12px', color: '#64748b', textAlign: 'center' }}>No active deliveries in progress</p>
+                <p style={{ margin: 0, padding: '12px 0', fontSize: '12px', color: '#8b949e', textAlign: 'center' }}>No active deliveries</p>
               )}
             </div>
           </div>
@@ -624,14 +650,14 @@ function App() {
             textAlign: 'center',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'linear-gradient(135deg, #111827 0%, #0b0f19 100%)',
+            backgroundColor: '#171b22',
             gap: '16px',
             padding: '40px 24px'
           }} onClick={(e) => e.stopPropagation()}>
-            <span style={{ fontSize: '54px', display: 'block', marginBottom: '8px' }}>🎉</span>
-            <h2 style={{ margin: 0, color: '#fff', fontWeight: '800', fontSize: '24px', letterSpacing: '-0.02em' }}>Congratulations!</h2>
-            <p style={{ margin: 0, color: '#94a3b8', fontSize: '14px', lineHeight: '1.6', maxWidth: '360px' }}>
-              You received a gift of <strong style={{ color: '#10b981' }}>Rs 1,000</strong> in your wallet. Talk to the AI copilot to start shopping.
+            <span style={{ fontSize: '48px', display: 'block', marginBottom: '8px' }}>⚡</span>
+            <h2 style={{ margin: 0, color: '#fff', fontWeight: '600', fontSize: '22px' }}>Welcome Grant Initiated</h2>
+            <p style={{ margin: 0, color: '#8b949e', fontSize: '14px', lineHeight: '1.6', maxWidth: '360px' }}>
+              Allocated <strong style={{ color: '#58a6ff' }}>Rs 1,000</strong> to your credentials. Use the conversational terminal to transact.
             </p>
             <button 
               onClick={() => {
@@ -640,14 +666,14 @@ function App() {
               }}
               style={{
                 ...styles.btnAdd,
-                padding: '14px 36px',
-                borderRadius: '14px',
+                padding: '12px 28px',
+                borderRadius: '30px',
                 fontSize: '14px',
                 marginTop: '16px',
-                boxShadow: '0 4px 25px rgba(168, 85, 247, 0.4)'
+                background: 'linear-gradient(135deg, #7a22ff 0%, #00d2ff 100%)'
               }}
             >
-              Start Shopping with AI Copilot
+              Open AI Chat Interface
             </button>
           </div>
         </div>
@@ -656,58 +682,34 @@ function App() {
       {isModalOpen && (
         <div style={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
           <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <div style={{ display: 'flex', justifycontent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '12px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #21262d', paddingBottom: '16px', alignItems: 'center' }}>
               <div>
-                <h3 style={{ margin: 0, color: '#fff', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ color: '#a855f7' }}>⚡</span> Autonomous Copilot
+                <h3 style={{ margin: 0, color: '#fff', fontSize: '18px', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  OmniMind Assistant
                 </h3>
-                <p style={{ color: '#64748b', fontSize: '11px', margin: '2px 0 0 0' }}>Fulfillment Gateway Module Node</p>
               </div>
-              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <button 
                   onClick={() => setShowAgentGuide(!showAgentGuide)} 
-                  style={{ 
-                    background: 'none', 
-                    border: 'none', 
-                    color: '#64748b', 
-                    cursor: 'pointer', 
-                    fontSize: '16px',
-                    padding: '4px 8px'
-                  }}
-                  title="Toggle Agent Guide"
+                  style={{ background: 'none', border: 'none', color: '#8b949e', cursor: 'pointer', fontSize: '14px' }}
                 >
-                  {showAgentGuide ? '📖' : '📕'}
+                  {showAgentGuide ? 'Hide Prompts' : 'Show Prompts'}
                 </button>
-                <button onClick={() => setIsModalOpen(false)} style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: '18px' }}>✕</button>
+                <button onClick={() => setIsModalOpen(false)} style={{ background: 'none', border: 'none', color: '#8b949e', cursor: 'pointer', fontSize: '18px' }}>✕</button>
               </div>
             </div>
             
             {showAgentGuide && (
-              <div style={styles.guideContainer}>
-                <div style={styles.guideTitle}>
-                  <span>🎯</span> Examples: How to use Agent
-                </div>
+              <div style={styles.guideContainer} className="gemini-guide-grid">
                 {agentGuideExamples.map((item, index) => (
                   <div 
                     key={index} 
+                    onClick={() => handleExampleClick(item.example)}
+                    className="guide-card-hover"
                     style={styles.guideItem}
-                    onClick={() => handleExampleClick(item.example.replace(/["']/g, ''))}
-                    className="guide-item-clickable"
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(168, 85, 247, 0.05)'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                    style={{
-                      ...styles.guideItem,
-                      cursor: 'pointer',
-                      transition: 'background-color 0.2s',
-                      borderRadius: '4px',
-                      padding: '4px 6px'
-                    }}
                   >
-                    <span style={styles.guideIcon}>{item.icon}</span>
-                    <div>
-                      <div style={styles.guideExample}>{item.example}</div>
-                      <div style={styles.guideDescription}>{item.description}</div>
-                    </div>
+                    <div style={styles.guideExample}>{item.example}</div>
+                    <div style={styles.guideDescription}>{item.description}</div>
                   </div>
                 ))}
               </div>
@@ -715,34 +717,55 @@ function App() {
 
             <div style={styles.chatLogsArea}>
               {chatHistory.map((msg, i) => (
-                <div key={i} style={msg.sender === 'user' ? styles.bubbleUser : styles.bubbleAgent}>{msg.text}</div>
+                <div 
+                  key={i} 
+                  className={msg.sender === 'agent' ? 'agent-avatar-decor' : ''}
+                  style={msg.sender === 'user' ? styles.bubbleUser : styles.bubbleAgent}
+                >
+                  {msg.text}
+                </div>
               ))}
+              
+              {isAgentTyping && (
+                <div className="agent-avatar-decor" style={styles.bubbleAgent}>
+                  <div className="gemini-loader">
+                    <div className="gemini-loader-dot"></div>
+                    <div className="gemini-loader-dot"></div>
+                    <div className="gemini-loader-dot"></div>
+                  </div>
+                </div>
+              )}
+              
               <div ref={messagesEndRef} />
             </div>
 
             {pendingApproval && (
               <div style={styles.hitlContainer}>
-                <p style={{ margin: 0, color: '#f8fafc', fontSize: '13px', fontWeight: '500' }}>
-                  ⚠️ Confirm operational intent for action block: <strong>{pendingApproval.type.toUpperCase()}</strong>
+                <p style={{ margin: 0, color: '#f0f6fc', fontSize: '13px' }}>
+                  Confirm operational execution sequence: <strong>{pendingApproval.type.toUpperCase()}</strong>
                 </p>
                 <div style={{ display: 'flex', gap: '8px' }}>
-                  <button onClick={() => resolveHumanApproval('approve')} style={{...styles.btnPrimary, padding: '8px'}}>Confirm Execution</button>
-                  <button onClick={() => resolveHumanApproval('reject')} style={{...styles.btnSecondary, padding: '8px'}}>Abandon Operation</button>
+                  <button onClick={() => resolveHumanApproval('approve')} style={{...styles.btnPrimary, padding: '8px 16px', borderRadius: '20px'}}>Approve</button>
+                  <button onClick={() => resolveHumanApproval('reject')} style={{...styles.btnSecondary, padding: '8px 16px', borderRadius: '20px'}}>Reject</button>
                 </div>
               </div>
             )}
 
-            <form onSubmit={handleSendMessage} style={styles.chatForm}>
+            <form onSubmit={handleSendMessage} className="gemini-input-wrapper" style={styles.chatForm}>
               <input 
                 type="text" 
-                placeholder={pendingApproval ? "Action completion mandatory..." : "Order 2 apples, search snacks..."} 
+                placeholder={pendingApproval ? "Pending authorization requirement..." : isAgentTyping ? "Assistant is thinking..." : "Ask OmniMind..."} 
                 value={modalInputValue}
                 onChange={(e) => setModalInputValue(e.target.value)}
                 style={styles.modalInput}
-                disabled={!!pendingApproval}
+                disabled={!!pendingApproval || isAgentTyping}
                 autoFocus
               />
-              <button type="submit" style={styles.btnSend} disabled={!!pendingApproval}>Send</button>
+              <button type="submit" style={styles.btnSend} disabled={!!pendingApproval || isAgentTyping}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="white"/>
+                </svg>
+              </button>
             </form>
           </div>
         </div>
